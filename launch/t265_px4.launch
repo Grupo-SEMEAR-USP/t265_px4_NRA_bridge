@@ -1,0 +1,8 @@
+<!-- <launch>
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_trasnform_map_to_t265_world" args="0.0 0.0 0.0 -1.5707963 0 1.5707963 map t265_world"/>
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_trasnform_t265_camera_to_t265_odometry" args="0.0 0.0 0.0 1.5707963 1.5707963 0.0 t265_camera t265_odometry"/>
+
+    <node name="t265_odom" pkg="t265" type="t265_node.py" output="screen"/>
+</launch> -->

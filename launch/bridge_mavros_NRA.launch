@@ -1,9 +1,6 @@
 <launch>
   <arg name="ns" default="/"/>
   <arg name="fcu_url" default="/dev/ttyACM0:576000"/>
-  <!-- <arg name="gcs_url" default="udp://@192.168.0.237:14550" />  -->
-  <arg name="gcs_url" default="" /> 
-  <!-- <param name="gcs_url" value="tcp-l://0.0.0.0:5760"/> -->
   <arg name="tgt_system" default="1" />
   <arg name="tgt_component" default="1" />
   
@@ -13,15 +10,22 @@
 
   <!-- Launch MavROS -->
   <group ns="$(arg ns)">
-      <include file="$(find mavros)/launch/node.launch">
+      <!-- <include file="$(find mavros)/launch/node.launch">
           <arg name="pluginlists_yaml" value="$(find mavros)/launch/px4_pluginlists.yaml" />
-          <!-- Need to change the config file to get the tf topic and get local position in terms of local origin -->
           <arg name="config_yaml" value="$(find mavros)/launch/px4_config.yaml" />
           <arg name="fcu_url" value="$(arg fcu_url)" />
           <arg name="gcs_url" value="$(arg gcs_url)" />
           <arg name="tgt_system" value="$(arg tgt_system)" />
           <arg name="tgt_component" value="$(arg tgt_component)" />
-      </include>
-  </group>
+      </include> -->
 
+    <include file="$(find px4_realsense_bridge)/launch/clover2mavros.launch">
+        <arg name="config_yaml" value="$(find px4_realsense_bridge)/launch/mavros_config.yaml" />
+        <arg name="tgt_system" value="$(arg tgt_system)" />
+        <arg name="tgt_component" value="$(arg tgt_component)" />
+        <arg name="fcu_url" value="$(arg fcu_url)" />
+
+    </include> 
+
+  </group>
 </launch>

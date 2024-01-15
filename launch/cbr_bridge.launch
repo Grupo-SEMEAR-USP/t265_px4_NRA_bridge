@@ -1,0 +1,7 @@
+<launch>
+    <!-- Inicie o bridge.launch -->
+    <include file="$(find px4_realsense_bridge)/launch/bridge.launch" />
+
+    <!-- Inicie o clover.launch após o bridge.launch ter sido iniciado -->
+    <include file="$(find clover)/launch/clover_cbr.launch" />
+</launch>
